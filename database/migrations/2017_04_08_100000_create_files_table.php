@@ -17,7 +17,7 @@ class CreateFilesTable extends Migration
             $table->increments('id');
             $table->integer('storages_id')->unsigned()->nullable();
             $table->string('name');
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }
