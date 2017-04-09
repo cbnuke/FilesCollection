@@ -18,3 +18,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+Route::post('/file', 'HomeController@storeFile');
+Route::get('/file/{id}', 'HomeController@destroyFile');
+
+Route::post('/storage', 'HomeController@storeStorage');
+Route::get('/storage/{id}', 'HomeController@destroyStorage');
