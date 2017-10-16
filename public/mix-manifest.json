@@ -1,0 +1,14 @@
+{
+    "/js/app.js": "/js/app.js",
+    "/css/app.css": "/css/app.css",
+    "/js/buttons.bootstrap.js": "/js/buttons.bootstrap.js",
+    "/js/buttons.print.js": "/js/buttons.print.js",
+    "/js/buttons.html5.js": "/js/buttons.html5.js",
+    "/js/buttons.flash.js": "/js/buttons.flash.js",
+    "/js/buttons.colVis.js": "/js/buttons.colVis.js",
+    "/js/dataTables.buttons.js": "/js/dataTables.buttons.js",
+    "/js/dataTables.bootstrap.js": "/js/dataTables.bootstrap.js",
+    "/js/jquery.dataTables.js": "/js/jquery.dataTables.js",
+    "/css/dataTables.bootstrap.css": "/css/dataTables.bootstrap.css",
+    "/css/buttons.bootstrap.css": "/css/buttons.bootstrap.css"
+}
