@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\File;
 use App\Storage;
+use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
