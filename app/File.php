@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 class File extends Model
 {
     protected $fillable = ['storages_id', 'name', 'description'];
+    protected $dates = ['created_at', 'updated_at'];
 
     public static function boot()
     {
