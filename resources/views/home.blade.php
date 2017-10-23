@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="panel panel-default">
-                    <div class="panel-heading">List Storages</div>
+                    <div class="panel-heading">List Storages <i class="fa fa-book"></i><i class="glyphicon glyphicon-floppy-disk"></i></div>
                     <div class="panel-body">
                         <table class="table table-bordered table-hover table-responsive" id="storage-dataTables">
                             <thead>
