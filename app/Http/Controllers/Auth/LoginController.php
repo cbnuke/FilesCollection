@@ -34,17 +34,6 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest', ['except' => 'logout']);
-    }
-
-    /**
-     * Override username in AuthenticatesUsers
-     * for new database schema
-     *
-     * @return void
-     */
-    public function username()
-    {
-        return 'username';
+        $this->middleware('guest')->except('logout');
     }
 }
