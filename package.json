@@ -12,10 +12,17 @@
     "devDependencies": {
         "axios": "^0.17",
         "bootstrap-sass": "^3.3.7",
-        "cross-env": "^5.1",
-        "jquery": "^3.2",
+        "cross-env": "^5.1.6",
+        "jquery": "^3.3.1",
         "laravel-mix": "^2.0",
-        "lodash": "^4.17.4",
-        "vue": "^2.5.7"
+        "lodash": "^4.17.10",
+        "vue": "^2.5.16"
+    },
+    "dependencies": {
+        "@fortawesome/fontawesome": "^1.1.8",
+        "datatables.net": "^1.10.16",
+        "datatables.net-bs4": "^1.10.16",
+        "datatables.net-buttons": "^1.5.1",
+        "datatables.net-buttons-bs4": "^1.5.1"
     }
 }
