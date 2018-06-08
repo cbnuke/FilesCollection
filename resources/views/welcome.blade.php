@@ -85,7 +85,7 @@
 
     <div class="content">
         <div class="title m-b-md">
-            {{ config('app.name', 'Files Collection') }}
+            <i class="fas fa-folder-open"></i> {{ config('app.name', 'Files Collection') }}
         </div>
 
         <div class="links">
@@ -94,5 +94,6 @@
         </div>
     </div>
 </div>
+<script src="{{ asset('js/font-awesome.js') }}"></script>
 </body>
 </html>
