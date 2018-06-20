@@ -1,19 +1,28 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 class CreateStoragesTable extends Migration
 {
     /**
+     * Schema table name to migrate
+     * @var string
+     */
+    public $set_schema_table = 'storages';
+
+    /**
      * Run the migrations.
+     * @table storages
      *
      * @return void
      */
     public function up()
     {
-        Schema::create('storages', function (Blueprint $table) {
+        if (Schema::hasTable($this->set_schema_table)) return;
+        Schema::create($this->set_schema_table, function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('name');
             $table->text('description')->nullable();
@@ -21,7 +30,7 @@ class CreateStoragesTable extends Migration
             $table->string('updated_by')->nullable();
             $table->string('deleted_by')->nullable();
             $table->softDeletes();
-            $table->Timestamps();
+            $table->timestamps();
         });
     }
 
@@ -30,8 +39,8 @@ class CreateStoragesTable extends Migration
      *
      * @return void
      */
-    public function down()
-    {
-        Schema::dropIfExists('storages');
-    }
+     public function down()
+     {
+       Schema::dropIfExists($this->set_schema_table);
+     }
 }
