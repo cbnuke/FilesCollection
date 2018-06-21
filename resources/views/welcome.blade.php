@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html lang="{{ config('app.locale') }}">
+
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Files Collection">
+    <meta name="author" content="CBNUKE">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Files Collection') }}</title>
 
@@ -17,83 +21,112 @@
     <link rel="icon" href="{{asset('img/logo.png')}}">
 
     <!-- Styles -->
+    <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <style>
-        html, body {
-            background-color: #fff;
-            color: #636b6f;
-            font-family: 'Prompt', sans-serif;
-            font-weight: 100;
-            height: 100vh;
-            margin: 0;
-        }
-
-        .full-height {
-            height: 100vh;
-        }
-
-        .flex-center {
-            align-items: center;
-            display: flex;
-            justify-content: center;
-        }
-
-        .position-ref {
+        html {
             position: relative;
+            min-height: 100%;
         }
 
-        .top-right {
+        .footer {
             position: absolute;
-            right: 10px;
-            top: 18px;
-        }
-
-        .content {
-            text-align: center;
-        }
-
-        .title {
-            font-size: 84px;
-        }
-
-        .links > a {
-            color: #636b6f;
-            padding: 0 25px;
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: .1rem;
-            text-decoration: none;
-            text-transform: uppercase;
-        }
-
-        .m-b-md {
-            margin-bottom: 30px;
+            bottom: 0;
+            width: 100%;
+            /* Set the fixed height of the footer here */
+            height: 60px;
+            line-height: 60px;
+            /* Vertically center the text there */
+            background-color: #f5f5f5;
         }
     </style>
 </head>
+
 <body>
-<div class="flex-center position-ref full-height">
-    @if (Route::has('login'))
+    <div id="app">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top py-1">
+            <div class="container">
+                <a class="navbar-brand" href="#">{{ config('app.name', 'Files Collection') }}</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07" aria-controls="navbarsExample07"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                <div class="collapse navbar-collapse" id="navbarsExample07">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Link</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="#">Disabled</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown07" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">Dropdown</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdown07">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <main role="main">
+
+            <section class="jumbotron text-center">
+                <div class="container">
+                    <h1 class="jumbotron-heading"><i class="fas fa-folder-open"></i> Files Collection</h1>
+
+                    <p class="lead text-muted">Power by
+                        <a href="https://laravel.com/">Laravel</a>, Project repo by <a href="https://github.com/">GitHub</a>
+                    </p>
+                    <p>
+                        <a href="https://github.com/cbnuke/FilesCollection" class="btn btn-primary my-2">Project Repository</a>
+                        <a href="https://github.com/cbnuke/" class="btn btn-secondary my-2">Creator</a>
+                    </p>
+                </div>
+            </section>
+
+        </main>
+
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <span class="float-right">
+                <a href="#">Back to top</a>
+            </span>
+            <span class="text-muted">Album example is &copy; Bootstrap, but please download and customize it for yourself!</span>
+        </div>
+    </footer>
+    {{--
+    <div class="flex-center position-ref full-height">
+        @if (Route::has('login'))
         <div class="top-right links">
             @if (Auth::check())
-                <a href="{{ url('/home') }}">Home</a>
-            @else
-                <a href="{{ url('/login') }}">Login</a>
-                <a href="{{ url('/register') }}">Register</a>
-            @endif
+            <a href="{{ url('/home') }}">Home</a> @else
+            <a href="{{ url('/login') }}">Login</a>
+            <a href="{{ url('/register') }}">Register</a> @endif
         </div>
-    @endif
+        @endif
 
-    <div class="content">
-        <div class="title m-b-md">
-            <i class="fas fa-folder-open"></i> {{ config('app.name', 'Files Collection') }}
-        </div>
+        <div class="content">
+            <div class="title m-b-md">
+                <i class="fas fa-folder-open"></i> {{ config('app.name', 'Files Collection') }}
+            </div>
 
-        <div class="links">
-            <a href="https://github.com/cbnuke/FilesCollection">GitHub</a>
-            <a href="https://laravel.com/">Power by Laravel</a>
+            <div class="links">
+                <a href="https://github.com/cbnuke/FilesCollection">GitHub</a>
+                <a href="https://laravel.com/">Power by Laravel</a>
+            </div>
         </div>
-    </div>
-</div>
-<script src="{{ asset('js/font-awesome.js') }}"></script>
+    </div> --}}
+    <script src="{{ asset('js/app.js') }}"></script>
 </body>
+
 </html>
