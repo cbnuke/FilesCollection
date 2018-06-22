@@ -43,6 +43,7 @@
 
 <body>
     <div id="app">
+        <router-view></router-view>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top py-1">
             <div class="container">
                 <a class="navbar-brand" href="#">{{ config('app.name', 'Files Collection') }}</a>

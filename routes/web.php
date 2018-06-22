@@ -12,7 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('vue_app');
+    // return view('welcome');
 });
 
 Auth::routes();
