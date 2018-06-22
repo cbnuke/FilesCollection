@@ -1,22 +1,22 @@
 import VueRouter from 'vue-router'
-// import Hello from './views/Hello'
 import Home from './views/Home'
+import About from './views/About'
 
 let routes = [
     {
         path: '/',
-        // name: 'home',
+        name: 'home',
         component: Home
     },
-    // {
-    //     path: '/hello',
-    //     name: 'hello',
-    //     component: Hello,
-    // },
+    {
+        path: '/about',
+        name: 'about',
+        component: About,
+    },
 ];
 
 const router = new VueRouter({
-    routes,
+	routes,
     linkActiveClass: 'active',
     mode: 'history'
 });
