@@ -5,9 +5,9 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="panel panel-default">
-                    <div class="panel-heading">List Storages</div>
+                    <div class="panel-heading">List Storages <i class="fa fa-book"></i><i class="glyphicon glyphicon-floppy-disk"></i></div>
                     <div class="panel-body">
-                        <table class="table table-bordered table-hover table-responsive">
+                        <table class="table table-bordered table-hover table-responsive" id="storage-dataTables">
                             <thead>
                             <tr>
                                 <th>Name</th>
@@ -32,7 +32,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">List Files</div>
                     <div class="panel-body">
-                        <table class="table table-bordered table-hover table-responsive">
+                        <table class="table table-bordered table-hover table-responsive" id="files-dataTables">
                             <thead>
                             <tr>
                                 <th>Name</th>
@@ -184,4 +184,13 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('script')
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#storage-dataTables').DataTable();
+            $('#files-dataTables').DataTable();
+        });
+    </script>
 @endsection

@@ -7,13 +7,22 @@ use Illuminate\Database\Migrations\Migration;
 class CreatePasswordResetsTable extends Migration
 {
     /**
+     * Schema table name to migrate
+     * @var string
+     */
+    public $set_schema_table = 'password_resets';
+
+    /**
      * Run the migrations.
+     * @table password_resets
      *
      * @return void
      */
     public function up()
     {
-        Schema::create('password_resets', function (Blueprint $table) {
+        if (Schema::hasTable($this->set_schema_table)) return;
+        Schema::create($this->set_schema_table, function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->string('username')->index();
             $table->string('token');
             $table->timestamp('created_at')->nullable();
@@ -25,8 +34,8 @@ class CreatePasswordResetsTable extends Migration
      *
      * @return void
      */
-    public function down()
-    {
-        Schema::dropIfExists('password_resets');
-    }
+     public function down()
+     {
+       Schema::dropIfExists($this->set_schema_table);
+     }
 }
