@@ -7,12 +7,6 @@ use Illuminate\Database\Migrations\Migration;
 class CreateTagsTable extends Migration
 {
     /**
-     * Schema table name to migrate
-     * @var string
-     */
-    public $set_schema_table = 'tags';
-
-    /**
      * Run the migrations.
      * @table tags
      *
@@ -20,10 +14,8 @@ class CreateTagsTable extends Migration
      */
     public function up()
     {
-        if (Schema::hasTable($this->set_schema_table)) return;
-        Schema::create($this->set_schema_table, function (Blueprint $table) {
-            $table->engine = 'InnoDB';
-            $table->increments('id');
+        Schema::create('tags', function (Blueprint $table) {
+            $table->id();
             $table->string('name');
             $table->string('created_by')->nullable();
             $table->string('updated_by')->nullable();
@@ -38,6 +30,6 @@ class CreateTagsTable extends Migration
      */
      public function down()
      {
-       Schema::dropIfExists($this->set_schema_table);
+        Schema::dropIfExists('tags');
      }
 }

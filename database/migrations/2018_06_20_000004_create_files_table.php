@@ -7,12 +7,6 @@ use Illuminate\Database\Migrations\Migration;
 class CreateFilesTable extends Migration
 {
     /**
-     * Schema table name to migrate
-     * @var string
-     */
-    public $set_schema_table = 'files';
-
-    /**
      * Run the migrations.
      * @table files
      *
@@ -20,11 +14,9 @@ class CreateFilesTable extends Migration
      */
     public function up()
     {
-        if (Schema::hasTable($this->set_schema_table)) return;
-        Schema::create($this->set_schema_table, function (Blueprint $table) {
-            $table->engine = 'InnoDB';
-            $table->increments('id');
-            $table->unsignedInteger('storages_id')->index();
+        Schema::create('files', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('storages_id');
             $table->string('name');
             $table->text('description')->nullable();
             $table->string('format_type', 45)->nullable();
@@ -46,8 +38,8 @@ class CreateFilesTable extends Migration
      *
      * @return void
      */
-     public function down()
-     {
-       Schema::dropIfExists($this->set_schema_table);
-     }
+    public function down()
+    {
+        Schema::dropIfExists('files');
+    }
 }

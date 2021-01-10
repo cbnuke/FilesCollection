@@ -6,13 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateFilesTagsTable extends Migration
 {
-    /**
-     * Schema table name to migrate
-     * @var string
-     */
-    public $set_schema_table = 'files_tags';
-
-    /**
+   /**
      * Run the migrations.
      * @table files_tags
      *
@@ -20,12 +14,10 @@ class CreateFilesTagsTable extends Migration
      */
     public function up()
     {
-        if (Schema::hasTable($this->set_schema_table)) return;
-        Schema::create($this->set_schema_table, function (Blueprint $table) {
-            $table->engine = 'InnoDB';
-            $table->increments('id');
-            $table->unsignedInteger('files_id')->index();
-            $table->unsignedInteger('tags_id')->index();
+        Schema::create('files_tags', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('files_id')->index();
+            $table->unsignedBigInteger('tags_id')->index();
             $table->string('created_by')->nullable();
             $table->string('updated_by')->nullable();
             $table->timestamps();
@@ -49,6 +41,6 @@ class CreateFilesTagsTable extends Migration
      */
      public function down()
      {
-       Schema::dropIfExists($this->set_schema_table);
+        Schema::dropIfExists('files_tags');
      }
 }

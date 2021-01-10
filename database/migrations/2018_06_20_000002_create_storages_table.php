@@ -7,12 +7,6 @@ use Illuminate\Database\Migrations\Migration;
 class CreateStoragesTable extends Migration
 {
     /**
-     * Schema table name to migrate
-     * @var string
-     */
-    public $set_schema_table = 'storages';
-
-    /**
      * Run the migrations.
      * @table storages
      *
@@ -20,12 +14,11 @@ class CreateStoragesTable extends Migration
      */
     public function up()
     {
-        if (Schema::hasTable($this->set_schema_table)) return;
-        Schema::create($this->set_schema_table, function (Blueprint $table) {
-            $table->engine = 'InnoDB';
-            $table->increments('id');
+        Schema::create('storages', function (Blueprint $table) {
+            $table->id();
             $table->string('name');
             $table->text('description')->nullable();
+            $table->json('api')->nullable();
             $table->string('created_by')->nullable();
             $table->string('updated_by')->nullable();
             $table->string('deleted_by')->nullable();
@@ -41,6 +34,6 @@ class CreateStoragesTable extends Migration
      */
      public function down()
      {
-       Schema::dropIfExists($this->set_schema_table);
+        Schema::dropIfExists('storages');
      }
 }
