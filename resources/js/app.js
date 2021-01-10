@@ -4,6 +4,8 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 import { BootstrapVue, IconsPlugin } from "bootstrap-vue";
+import VueRouter from "vue-router";
+import App from "./views/App";
 
 require("./bootstrap");
 
@@ -33,6 +35,41 @@ Vue.use(IconsPlugin);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-const app = new Vue({
-    el: "#app"
+// const app = new Vue({
+//     el: "#app"
+// });
+
+// import Test1 from './components/Test1'
+// import Test2 from './components/Test2'
+
+// Vue.component(
+//     "Test1",
+//     require("./components/Test1.vue").default
+// );
+// Vue.component(
+//     "Test2",
+//     require("./components/Test2.vue").default
+// );
+
+// const routes = [
+//     {path:'test1',component:Test1},
+//     {path:'test2',component:Test2},
+// ];
+
+const Foo = { template: "<div>foo</div>" };
+const Bar = { template: "<div>bar</div>" };
+
+const routes = [
+    { path: "/foo", component: Foo },
+    { path: "/bar", component: Bar }
+];
+
+const router = new VueRouter({
+    routes // short for `routes: routes`
 });
+
+const app = new Vue({
+    router,
+    // store,
+    ...App
+}).$mount("#app");
