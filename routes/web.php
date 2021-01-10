@@ -24,10 +24,10 @@ Route::get('/{vue?}', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/home', 'App\Http\Controllers\HomeController@index');
 
-Route::post('/file', 'HomeController@storeFile');
-Route::get('/file/{id}', 'HomeController@destroyFile');
+Route::post('/file', 'App\Http\Controllers\HomeController@storeFile');
+Route::get('/file/{id}', 'App\Http\Controllers\HomeController@destroyFile');
 
-Route::post('/storage', 'HomeController@storeStorage');
-Route::get('/storage/{id}', 'HomeController@destroyStorage');
+Route::post('/storage', 'App\Http\Controllers\HomeController@storeStorage');
+Route::get('/storage/{id}', 'App\Http\Controllers\HomeController@destroyStorage');
